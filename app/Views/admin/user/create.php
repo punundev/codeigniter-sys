@@ -33,18 +33,18 @@ Add User
           </div>
           <div class="form-group">
             <label for="role">Role</label>
-             <select name="role" id="role" class="form-control">
-             <option value="Admin">Admin</option>
-             <option value="Manager">Manager</option>
-             <option value="User">User</option>
-             </select>
+            <select name="role" id="role" class="form-control">
+              <option value="Admin">Admin</option>
+              <option value="Manager">Manager</option>
+              <option value="Staff">Staff</option>
+            </select>
           </div>
           <div class="form-group">
             <label for="status">Status</label>
             <select name="status" id="status" class="form-control">
-            <option value="Active">Active</option>
-            <option value="Inactive">Inactive</option>
-           </select>
+              <option value="Active">Active</option>
+              <option value="Inactive">Inactive</option>
+            </select>
           </div>
           <button type="submit" class="btn btn-success mr-2 font-weight-semibold">Save</button>
           <a href="<?= site_url('admin/user') ?>" class="btn btn-light font-weight-semibold">Back</a>
@@ -54,4 +54,3 @@ Add User
   </div>
 </div>
 <?= $this->endSection() ?>
-

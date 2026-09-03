@@ -9,9 +9,7 @@ Edit User
 <div class="row">
     <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
-
             <div class="card-body">
-
                 <h4 class="card-title">Edit User</h4>
 
                 <form class="forms-sample"
@@ -66,46 +64,35 @@ Edit User
                                value="<?= esc($user['phone']) ?>">
                     </div>
 
-                    <!-- Role -->
                     <div class="form-group">
                         <label for="role">Role</label>
-
                         <select name="role" id="role" class="form-control">
-
                             <option value="Admin"
                                 <?= ($user['role'] == 'Admin') ? 'selected' : '' ?>>
                                 Admin
                             </option>
-
                             <option value="Manager"
                                 <?= ($user['role'] == 'Manager') ? 'selected' : '' ?>>
                                 Manager
                             </option>
-
-                            <option value="User"
-                                <?= ($user['role'] == 'User') ? 'selected' : '' ?>>
-                                User
+                            <option value="Staff"
+                                <?= ($user['role'] == 'Staff') ? 'selected' : '' ?>>
+                                Staff
                             </option>
-
                         </select>
                     </div>
 
-                    <!-- Status -->
                     <div class="form-group">
                         <label for="status">Status</label>
-
                         <select name="status" id="status" class="form-control">
-
                             <option value="Active"
                                 <?= ($user['status'] == 'Active') ? 'selected' : '' ?>>
                                 Active
                             </option>
-
                             <option value="Inactive"
                                 <?= ($user['status'] == 'Inactive') ? 'selected' : '' ?>>
                                 Inactive
                             </option>
-
                         </select>
                     </div>
 
@@ -122,7 +109,6 @@ Edit User
                 </form>
 
             </div>
-
         </div>
     </div>
 </div>
