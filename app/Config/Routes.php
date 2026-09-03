@@ -10,7 +10,7 @@ $routes->post('login/auth', 'Login::auth');
 $routes->get('logout', 'Login::logout');
 $routes->get('admin/logout', 'Login::logout');
 $routes->get('admin/dashboard', 'Admin\Dashboard::index');
-$routes->get('user/dashboard', 'User\Dashboard::index');/* for login user*/
+$routes->get('user/dashboard', 'User\Dashboard::index');
 $routes->group('user', function ($routes) {
     $routes->get('/', 'User\User::index');
 });
@@ -100,47 +100,6 @@ $routes->group('stock', function($routes) {
     $routes->get('reports', 'Stock\Stock::reports');
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 $routes->group('task', function ($routes) {
 
