@@ -29,7 +29,7 @@ Staff Dashboard
                 <div class="d-flex justify-content-between">
                     <div>
                         <p class="text-muted mb-1">My Tasks</p>
-                        <a href="<?= site_url('admin/task') ?>" class="btn btn-success btn-sm font-weight-semibold mt-1">
+                        <a href="<?= site_url('staff/task') ?>" class="btn btn-success btn-sm font-weight-semibold mt-1">
                             View Tasks
                         </a>
                     </div>

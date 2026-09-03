@@ -72,3 +72,18 @@ $routes->group('admin/task', function ($routes) {
     $routes->get('report/export', 'Task\Task::exportReport');
     $routes->get('dashboard-chart', 'Task\Task::dashboardChart');
 });
+
+$routes->group('staff/task', function ($routes) {
+    $routes->get('/', 'Staff\Task::index');
+    $routes->get('create', 'Staff\Task::create');
+    $routes->post('store', 'Staff\Task::store');
+    $routes->get('view/(:num)', 'Staff\Task::view/$1');
+    $routes->get('edit/(:num)', 'Staff\Task::edit/$1');
+    $routes->post('update/(:num)', 'Staff\Task::update/$1');
+    $routes->get('delete/(:num)', 'Staff\Task::delete/$1');
+    $routes->get('worklog/create/(:num)', 'Staff\WorkLog::create/$1');
+    $routes->post('worklog/store', 'Staff\WorkLog::store');
+    $routes->get('report', 'Staff\Task::report');
+    $routes->get('report/export', 'Staff\Task::exportReport');
+    $routes->get('dashboard-chart', 'Staff\Task::dashboardChart');
+});
