@@ -15,6 +15,85 @@
   <link rel="shortcut icon" href="<?= base_url('assets/images/favicon.ico') ?>">
   <link rel="icon" type="image/x-icon" href="<?= base_url('assets/images/favicon.ico') ?>">
   <style>
+    .btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 0.45rem 0.9rem !important;
+      font-size: 0.875rem !important;
+      font-weight: 600 !important;
+      line-height: 1.4 !important;
+      border-radius: 4px !important;
+      border: 1px solid transparent !important;
+      text-decoration: none !important;
+      cursor: pointer !important;
+      outline: none !important;
+      box-shadow: none !important;
+    }
+    .btn-sm {
+      padding: 0.3rem 0.65rem !important;
+      font-size: 0.8125rem !important;
+    }
+    .btn-primary {
+      color: #ffffff !important;
+      background-color: #2196f3 !important;
+      border-color: #2196f3 !important;
+    }
+    .btn-primary:hover {
+      background-color: #1e88e5 !important;
+      border-color: #1e88e5 !important;
+      color: #ffffff !important;
+    }
+    .btn-secondary {
+      color: #212529 !important;
+      background-color: #e4e8f0 !important;
+      border-color: #e4e8f0 !important;
+    }
+    .btn-secondary:hover {
+      background-color: #d8dce6 !important;
+      border-color: #d8dce6 !important;
+      color: #212529 !important;
+    }
+    .btn-success {
+      color: #ffffff !important;
+      background-color: #00c689 !important;
+      border-color: #00c689 !important;
+    }
+    .btn-success:hover {
+      background-color: #00b37c !important;
+      border-color: #00b37c !important;
+      color: #ffffff !important;
+    }
+    .btn-danger {
+      color: #ffffff !important;
+      background-color: #ff5252 !important;
+      border-color: #ff5252 !important;
+    }
+    .btn-danger:hover {
+      background-color: #f44336 !important;
+      border-color: #f44336 !important;
+      color: #ffffff !important;
+    }
+    .btn-warning {
+      color: #ffffff !important;
+      background-color: #ffaf00 !important;
+      border-color: #ffaf00 !important;
+    }
+    .btn-warning:hover {
+      background-color: #e69d00 !important;
+      border-color: #e69d00 !important;
+      color: #ffffff !important;
+    }
+    .btn-info {
+      color: #ffffff !important;
+      background-color: #00bcd4 !important;
+      border-color: #00bcd4 !important;
+    }
+    .btn-info:hover {
+      background-color: #00acc1 !important;
+      border-color: #00acc1 !important;
+      color: #ffffff !important;
+    }
     .btn + .btn, .btn + .btn-group, .btn-group + .btn, .btn-group + .btn-group, a.btn + a.btn, button.btn + a.btn, a.btn + button.btn, button.btn + button.btn {
       margin-left: 4px !important;
     }

@@ -129,97 +129,57 @@ IT Task Management
     </div>
 
 
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="d-flex flex-wrap" style="gap: 4px;">
+            <a href="<?= site_url('admin/task/create') ?>"
+               class="btn btn-success btn-sm font-weight-semibold">
+                New Task
+            </a>
+
+            <a href="<?= site_url('admin/task/report') ?>"
+               class="btn btn-success btn-sm font-weight-semibold">
+                Reports
+            </a>
+        </div>
+    </div>
+
     <!-- FILTER / SEARCH -->
     <div class="card shadow-sm border-0 mb-4">
-
         <div class="card-body">
-
             <div class="row">
-
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label>Search</label>
-
                     <input type="text"
                            id="taskSearch"
                            class="form-control"
                            placeholder="Search task, computer, problem...">
                 </div>
 
-
                 <div class="col-md-3">
-
                     <label>Status</label>
-
                     <select id="statusFilter"
                             class="form-control">
-
                         <option value="">All Status</option>
                         <option value="Open">Open</option>
                         <option value="In Progress">In Progress</option>
                         <option value="Completed">Completed</option>
                         <option value="Pending">Pending</option>
-
                     </select>
-
                 </div>
 
-
-                <div class="col-md-2">
-
+                <div class="col-md-3">
                     <label>Priority</label>
-
                     <select id="priorityFilter"
                             class="form-control">
-
                         <option value="">All Priority</option>
                         <option value="Low">Low</option>
                         <option value="Normal">Normal</option>
                         <option value="High">High</option>
                         <option value="Urgent">Urgent</option>
-
                     </select>
-
                 </div>
-
-
-                <div class="col-md-1">
-
-                    <label>&nbsp;</label>
-
-                    <a href="<?= site_url('admin/task/report') ?>"
-                       class="btn btn-success btn-block">
-
-                        <i class="fas fa-file-alt"></i>
-                        Reports
-
-                    </a>
-
-                </div>
-
-
-
-
-                  <div class="col-md-1">
-
-                    <label>&nbsp;</label>
-
-                      <a href="<?= site_url('admin/task/create') ?>"  class="btn btn-success btn-block">
-
-                        <i class="fas fa-file-alt"></i>
-                        New Task
-
-                    </a>
-
-                </div>
-
-
-
-
-		
             </div>
-
         </div>
-
     </div>
 
 
