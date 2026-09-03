@@ -17,7 +17,7 @@ Edit Stock
                     Edit Stock
                 </h4>
 
-                <form action="<?= site_url('stock/update/' . $stock['id']) ?>"
+                <form action="<?= site_url('admin/stock/update/' . $stock['id']) ?>"
                       method="post">
 
                     <?= csrf_field() ?>
@@ -138,7 +138,7 @@ Edit Stock
                         Update Stock
                     </button>
 
-                    <a href="<?= site_url('stock') ?>"
+                    <a href="<?= site_url('admin/stock') ?>"
                        class="btn btn-secondary">
                         Cancel
                     </a>

@@ -77,19 +77,19 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= site_url('stock') ?>">
+            <a class="nav-link" href="<?= site_url('admin/stock') ?>">
               <i class="menu-icon typcn typcn-th-large-outline"></i>
               <span class="menu-title">Stock Overview</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= site_url('stock/stock-in') ?>">
+            <a class="nav-link" href="<?= site_url('admin/stock/stock-in') ?>">
               <i class="menu-icon typcn typcn-arrow-down-thick"></i>
               <span class="menu-title">Stock In</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= site_url('stock/stock-out') ?>">
+            <a class="nav-link" href="<?= site_url('admin/stock/stock-out') ?>">
               <i class="menu-icon typcn typcn-arrow-up-thick"></i>
               <span class="menu-title">Stock Out</span>
             </a>

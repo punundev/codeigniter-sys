@@ -20,24 +20,24 @@ Stock List
 
         <div class="mb-3">
 
-            <a href="<?= site_url('stock/create') ?>"
+            <a href="<?= site_url('admin/stock/create') ?>"
               class="btn btn-primary btn-sm">
                 Add Stock
 
             </a>
-            <a href="<?= site_url('stock/stock-in') ?>"
+            <a href="<?= site_url('admin/stock/stock-in') ?>"
              class="btn btn-primary btn-sm">
                 Stock In
 
             </a>
 
-            <a href="<?= site_url('stock/stock-out') ?>"
+            <a href="<?= site_url('admin/stock/stock-out') ?>"
                class="btn btn-primary btn-sm">
                 Stock Out
 
             </a>
 
-                <a href="<?= site_url('stock/reports') ?>"
+                <a href="<?= site_url('admin/stock/reports') ?>"
                class="btn btn-primary btn-sm">
 
                 View Reports
@@ -214,14 +214,14 @@ Stock List
 
                             <td>
 
-                                <a href="<?= site_url('stock/edit/' . $item['id']) ?>"
+                                <a href="<?= site_url('admin/stock/edit/' . $item['id']) ?>"
                                    class="btn btn-warning btn-sm">
 
                                     Edit
 
                                 </a>
 
-                                <a href="<?= site_url('stock/delete/' . $item['id']) ?>"
+                                <a href="<?= site_url('admin/stock/delete/' . $item['id']) ?>"
                                    class="btn btn-danger btn-sm"
                                    onclick="return confirm('Delete this stock?')">
 
@@ -297,7 +297,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         fetch(
-            "<?= site_url('stock/ajaxFilter') ?>?" +
+            "<?= site_url('admin/stock/ajaxFilter') ?>?" +
             params.toString()
         )
 
@@ -379,14 +379,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
                         <td>
 
-                            <a href="<?= site_url('stock/edit') ?>/${item.id}"
+                            <a href="<?= site_url('admin/stock/edit') ?>/${item.id}"
                                class="btn btn-warning btn-sm">
 
                                 Edit
 
                             </a>
 
-                            <a href="<?= site_url('stock/delete') ?>/${item.id}"
+                            <a href="<?= site_url('admin/stock/delete') ?>/${item.id}"
                                class="btn btn-danger btn-sm">
 
                                 Delete

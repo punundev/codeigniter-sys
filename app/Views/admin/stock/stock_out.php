@@ -19,7 +19,7 @@ Stock Out
                     Stock Out
                 </h4>
 
-                   <form action="<?= site_url('stock/stock-out/store') ?>"
+                   <form action="<?= site_url('admin/stock/stock-out/store') ?>"
       method="post">
 
     <?= csrf_field() ?>
@@ -130,7 +130,7 @@ Stock Out
         Save Stock Out
     </button>
 
-    <a href="<?= site_url('stock') ?>"
+    <a href="<?= site_url('admin/stock') ?>"
        class="btn btn-secondary">
         Cancel
     </a>

@@ -50,44 +50,23 @@ $routes->group('inventory', function ($routes) {
 
 });
 
-$routes->group('stock', function($routes) {
-
-    // Dashboard
+$routes->group('admin/stock', function($routes) {
     $routes->get('/', 'Stock\Stock::index');
     $routes->get('dashboard', 'Stock\Stock::dashboard');
-
-    // Stock
     $routes->get('create', 'Stock\Stock::create');
     $routes->post('store', 'Stock\Stock::store');
-
     $routes->get('edit/(:num)', 'Stock\Stock::edit/$1');
     $routes->post('update/(:num)', 'Stock\Stock::update/$1');
-
     $routes->get('delete/(:num)', 'Stock\Stock::delete/$1');
-
-    // AJAX
     $routes->get('ajaxFilter', 'Stock\Stock::ajaxFilter');
-
-    // Stock IN
     $routes->get('stock-in', 'Stock\Stock::stockIn');
     $routes->post('stock-in/store', 'Stock\Stock::saveStockIn');
-
-    // Stock OUT
     $routes->get('stock-out', 'Stock\Stock::stockOut');
     $routes->post('stock-out/store', 'Stock\Stock::saveStockOut');
-
-    // History
     $routes->get('history', 'Stock\Stock::history');
-
-    // Low stock
     $routes->get('low-stock', 'Stock\Stock::lowStock');
-
-    // Serial numbers
     $routes->get('serial-numbers', 'Stock\Stock::serialNumbers');
-
-    // Reports
     $routes->get('reports', 'Stock\Stock::reports');
-
 });
 
 $routes->group('task', function ($routes) {

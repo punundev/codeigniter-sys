@@ -19,7 +19,7 @@ Add Stock
                     Add New Stock
                 </h4>
 
-                <form action="<?= site_url('stock/store') ?>"
+                <form action="<?= site_url('admin/stock/store') ?>"
                       method="post">
 
                     <?= csrf_field() ?>
@@ -161,7 +161,7 @@ Add Stock
                         Save Stock
                     </button>
 
-                    <a href="<?= site_url('stock') ?>"
+                    <a href="<?= site_url('admin/stock') ?>"
                        class="btn btn-secondary">
                         Cancel
                     </a>

@@ -83,7 +83,7 @@ Low Stock
 
                                         <td>
 
-                                            <a href="<?= site_url('stock/stock-in') ?>"
+                                            <a href="<?= site_url('admin/stock/stock-in') ?>"
                                                class="btn btn-primary btn-sm">
                                                 Stock In
                                             </a>

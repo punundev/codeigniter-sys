@@ -230,7 +230,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= site_url('stock') ?>">
+            <a class="nav-link" href="<?= site_url('admin/stock') ?>">
               <i class="menu-icon typcn typcn-th-large-outline"></i>
               <span class="menu-title">Stocks</span>
             </a>
