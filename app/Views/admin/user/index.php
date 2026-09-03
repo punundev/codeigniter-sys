@@ -10,13 +10,13 @@ User List
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">User List</h4>
-        <div class="d-flex justify-content-between mb-3">
-          <div>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <div class="d-flex" style="gap: 4px;">
             <a href="<?= site_url('admin/user/create') ?>" class="btn btn-success font-weight-semibold">Add Users</a>
             <a href="<?= site_url('admin/user/export') ?>" class="btn btn-success font-weight-semibold">Export Users</a>
           </div>
-          <form method="get" action="<?= site_url('admin/user') ?>" class="form-inline">
-            <input type="text" name="search" class="form-control mr-2" placeholder="Search..." value="<?= esc($search ?? '') ?>">
+          <form method="get" action="<?= site_url('admin/user') ?>" class="d-flex">
+            <input type="text" name="search" class="form-control me-2 mr-2" placeholder="Search..." value="<?= esc($search ?? '') ?>">
             <button class="btn btn-primary font-weight-semibold">Search</button>
           </form>
         </div>
@@ -35,8 +35,8 @@ User List
               </tr>
             </thead>
             <tbody>
-               <?php foreach ($users as $u): ?>
-              <tr>
+              <?php foreach ($users as $u): ?>
+                <tr>
                   <td><?= $u['id'] ?></td>
                   <td><?= esc($u['username']) ?></td>
                   <td><?= esc($u['fullname']) ?></td>
@@ -44,21 +44,29 @@ User List
                   <td><?= esc($u['phone']) ?></td>
                   <td><?= esc($u['role']) ?></td>
                   <td><?= esc($u['status']) ?></td>
-                 <td>
-                      <a href="<?= site_url('admin/user/edit/' . $u['id']) ?>" class="btn btn-warning btn-xs">Edit</a>
-                      <a href="<?= site_url('admin/user/delete/' . $u['id']) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Delete this record?')">Delete</a>
-                    </td>
-                  </tr>
-                <?php endforeach; ?>
+                  <td>
+                    <div class="d-flex" style="gap: 4px;">
+                      <a href="<?= site_url('admin/user/edit/' . $u['id']) ?>" class="btn btn-warning btn-sm">Edit</a>
+                      <a href="<?= site_url('admin/user/delete/' . $u['id']) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Delete this record?')">Delete</a>
+                    </div>
+                  </td>
+                </tr>
+              <?php endforeach; ?>
             </tbody>
           </table>
         </div>
-        <div class="mt-3">
-          <?= $pager->links() ?>
+        <div class="d-flex justify-content-between align-items-center mt-3">
+          <div>
+            <small class="text-muted">
+              Showing Page <?= esc($pager->getCurrentPage()) ?> of <?= esc($pager->getPageCount()) ?>
+            </small>
+          </div>
+          <div>
+            <?= $pager->links('default', 'bootstrap_pagination') ?>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 <?= $this->endSection() ?>
-
