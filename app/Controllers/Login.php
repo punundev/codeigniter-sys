@@ -43,7 +43,11 @@ class Login extends BaseController
             return redirect()->to('/admin/dashboard');
         }
 
-        return redirect()->to('/user/dashboard');
+        if ($user['role'] == 'Staff') {
+            return redirect()->to('/staff/dashboard');
+        }
+
+        return redirect()->to('/staff/dashboard');
     }
 
     public function logout()

@@ -8,7 +8,8 @@ $routes->post('login/auth', 'Login::auth');
 $routes->get('logout', 'Login::logout');
 $routes->get('admin/logout', 'Login::logout');
 $routes->get('admin/dashboard', 'Admin\Dashboard::index');
-$routes->get('user/dashboard', 'User\Dashboard::index');
+$routes->get('staff/dashboard', 'Staff\Dashboard::index');
+$routes->get('user/dashboard', 'Staff\Dashboard::index');
 
 $routes->group('admin/user', function($routes) {
     $routes->get('/', 'User\User::index');
