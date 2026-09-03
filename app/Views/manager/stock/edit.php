@@ -133,15 +133,17 @@ Edit Stock
                                   rows="4"><?= esc($stock['notes'] ?? '') ?></textarea>
                     </div>
 
-                    <button type="submit"
-                            class="btn btn-primary">
-                        Update Stock
-                    </button>
+                    <div class="d-flex" style="gap: 4px;">
+                        <button type="submit"
+                                class="btn btn-primary">
+                            Update Stock
+                        </button>
 
-                    <a href="<?= site_url('manager/stock') ?>"
-                       class="btn btn-secondary">
-                        Cancel
-                    </a>
+                        <a href="<?= site_url('manager/stock') ?>"
+                           class="btn btn-secondary">
+                            Cancel
+                        </a>
+                    </div>
 
                 </form>
 

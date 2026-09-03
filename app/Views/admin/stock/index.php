@@ -18,30 +18,25 @@ Stock List
              BUTTONS
         =========================== -->
 
-        <div class="mb-3">
-
+        <div class="mb-3 d-flex flex-wrap" style="gap: 4px;">
             <a href="<?= site_url('admin/stock/create') ?>"
               class="btn btn-primary btn-sm">
                 Add Stock
-
             </a>
+
             <a href="<?= site_url('admin/stock/stock-in') ?>"
              class="btn btn-primary btn-sm">
                 Stock In
-
             </a>
 
             <a href="<?= site_url('admin/stock/stock-out') ?>"
                class="btn btn-primary btn-sm">
                 Stock Out
-
             </a>
 
-                <a href="<?= site_url('admin/stock/reports') ?>"
+            <a href="<?= site_url('admin/stock/reports') ?>"
                class="btn btn-primary btn-sm">
-
                 View Reports
-
             </a>
         </div>
 
@@ -213,22 +208,18 @@ Stock List
                             <td><?= esc($item['shelf']) ?></td>
 
                             <td>
+                                <div class="d-flex" style="gap: 4px;">
+                                    <a href="<?= site_url('admin/stock/edit/' . $item['id']) ?>"
+                                       class="btn btn-warning btn-sm">
+                                        Edit
+                                    </a>
 
-                                <a href="<?= site_url('admin/stock/edit/' . $item['id']) ?>"
-                                   class="btn btn-warning btn-sm">
-
-                                    Edit
-
-                                </a>
-
-                                <a href="<?= site_url('admin/stock/delete/' . $item['id']) ?>"
-                                   class="btn btn-danger btn-sm"
-                                   onclick="return confirm('Delete this stock?')">
-
-                                    Delete
-
-                                </a>
-
+                                    <a href="<?= site_url('admin/stock/delete/' . $item['id']) ?>"
+                                       class="btn btn-danger btn-sm"
+                                       onclick="return confirm('Delete this stock?')">
+                                        Delete
+                                    </a>
+                                </div>
                             </td>
 
                         </tr>
@@ -378,21 +369,17 @@ document.addEventListener('DOMContentLoaded', function () {
                         </td>
 
                         <td>
+                            <div class="d-flex" style="gap: 4px;">
+                                <a href="<?= site_url('admin/stock/edit') ?>/${item.id}"
+                                   class="btn btn-warning btn-sm">
+                                    Edit
+                                </a>
 
-                            <a href="<?= site_url('admin/stock/edit') ?>/${item.id}"
-                               class="btn btn-warning btn-sm">
-
-                                Edit
-
-                            </a>
-
-                            <a href="<?= site_url('admin/stock/delete') ?>/${item.id}"
-                               class="btn btn-danger btn-sm">
-
-                                Delete
-
-                            </a>
-
+                                <a href="<?= site_url('admin/stock/delete') ?>/${item.id}"
+                                   class="btn btn-danger btn-sm">
+                                    Delete
+                                </a>
+                            </div>
                         </td>
 
                     </tr>

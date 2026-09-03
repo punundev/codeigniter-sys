@@ -98,15 +98,17 @@ Stock In
 
                     </div>
 
-                    <button type="submit"
-                            class="btn btn-primary">
-                        Save Stock In
-                    </button>
+                    <div class="d-flex" style="gap: 4px;">
+                        <button type="submit"
+                                class="btn btn-primary">
+                            Save Stock In
+                        </button>
 
-                    <a href="<?= site_url('admin/stock') ?>"
-                       class="btn btn-secondary">
-                        Cancel
-                    </a>
+                        <a href="<?= site_url('admin/stock') ?>"
+                           class="btn btn-secondary">
+                            Cancel
+                        </a>
+                    </div>
 
                 </form>
 
