@@ -1,8 +1,8 @@
 ```php
-<?= $this->extend('layouts/main') ?>
+<?= $this->extend('layouts/admin') ?>
 
 <?= $this->section('title') ?>
-Serial Numbers
+Low Stock
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
@@ -15,34 +15,35 @@ Serial Numbers
 
             <div class="card-body">
 
-                <h4 class="card-title">
-                    Serial Numbers
+                <h4 class="card-title text-danger">
+                    Low Stock
                 </h4>
 
                 <div class="table-responsive">
 
-                    <table class="table table-striped table-hover">
+                    <table class="table table-bordered table-hover">
 
                         <thead>
 
                             <tr>
                                 <th>ID</th>
                                 <th>Item Name</th>
-                                <th>Serial Number</th>
+                                <th>Category</th>
                                 <th>Manufacturer</th>
                                 <th>Model</th>
-                                <th>Status</th>
-                                <th>Assigned To</th>
+                                <th>Current Quantity</th>
+                                <th>Minimum Stock</th>
                                 <th>Location</th>
+                                <th>Action</th>
                             </tr>
 
                         </thead>
 
                         <tbody>
 
-                            <?php if (!empty($serialNumbers)): ?>
+                            <?php if (!empty($stock)): ?>
 
-                                <?php foreach ($serialNumbers as $item): ?>
+                                <?php foreach ($stock as $item): ?>
 
                                     <tr>
 
@@ -55,7 +56,7 @@ Serial Numbers
                                         </td>
 
                                         <td>
-                                            <?= esc($item['serial_number']) ?>
+                                            <?= esc($item['category']) ?>
                                         </td>
 
                                         <td>
@@ -66,36 +67,27 @@ Serial Numbers
                                             <?= esc($item['model']) ?>
                                         </td>
 
-                                        <td>
+                                        <td class="text-danger font-weight-bold">
 
-                                            <?php if ($item['status'] === 'Available'): ?>
-
-                                                <span class="badge bg-success">
-                                                    Available
-                                                </span>
-
-                                            <?php elseif ($item['status'] === 'Assigned'): ?>
-
-                                                <span class="badge bg-primary">
-                                                    Assigned
-                                                </span>
-
-                                            <?php else: ?>
-
-                                                <span class="badge bg-secondary">
-                                                    <?= esc($item['status']) ?>
-                                                </span>
-
-                                            <?php endif; ?>
+                                            <?= esc($item['quantity']) ?>
 
                                         </td>
 
                                         <td>
-                                            <?= esc($item['assigned_to']) ?>
+                                            <?= esc($item['minimum_stock']) ?>
                                         </td>
 
                                         <td>
                                             <?= esc($item['location']) ?>
+                                        </td>
+
+                                        <td>
+
+                                            <a href="<?= site_url('stock/stock-in') ?>"
+                                               class="btn btn-primary btn-sm">
+                                                Stock In
+                                            </a>
+
                                         </td>
 
                                     </tr>
@@ -106,10 +98,10 @@ Serial Numbers
 
                                 <tr>
 
-                                    <td colspan="8"
-                                        class="text-center">
+                                    <td colspan="9"
+                                        class="text-center text-success">
 
-                                        No serial numbers found.
+                                        No low stock items.
 
                                     </td>
 

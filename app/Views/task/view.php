@@ -1,5 +1,5 @@
 
-<?= $this->extend('layouts/main') ?>
+<?= $this->extend('layouts/admin') ?>
 
 <?= $this->section('title') ?>
 Task Details

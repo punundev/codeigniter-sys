@@ -1,5 +1,5 @@
 ```php
-<?= $this->extend('layouts/main') ?>
+<?= $this->extend('layouts/admin') ?>
 
 <?= $this->section('title') ?>
 Stock History
