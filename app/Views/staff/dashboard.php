@@ -39,7 +39,7 @@ Staff Dashboard
               <div class="card-body d-flex justify-content-between align-items-center">
                 <div>
                   <h6 class="card-title text-white">Inventory</h6>
-                  <a href="<?= site_url('admin/inventory') ?>" class="btn btn-light btn-sm mt-2">Lookup Inventory</a>
+                  <a href="<?= site_url('staff/inventory') ?>" class="btn btn-light btn-sm mt-2">Lookup Inventory</a>
                 </div>
                 <i class="menu-icon typcn typcn-bell icon-lg"></i>
               </div>

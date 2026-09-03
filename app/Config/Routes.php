@@ -32,6 +32,13 @@ $routes->group('admin/inventory', function ($routes) {
     $routes->get('export', 'Inventory\Inventory::exportExcel');
 });
 
+$routes->group('staff/inventory', function ($routes) {
+    $routes->get('/', 'Staff\Inventory::index');
+    $routes->get('view/(:num)', 'Staff\Inventory::view/$1');
+    $routes->get('ajaxFilter', 'Staff\Inventory::ajaxFilter');
+    $routes->get('export', 'Staff\Inventory::exportExcel');
+});
+
 $routes->group('admin/stock', function($routes) {
     $routes->get('/', 'Stock\Stock::index');
     $routes->get('dashboard', 'Stock\Stock::dashboard');
