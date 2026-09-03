@@ -27,15 +27,10 @@ class Login extends BaseController
             return redirect()->back()->with('error', 'Username not found.');
         }
 
-        // For testing only (plain text password)
-       /* if ($password != $user['password']) {
+        if (!password_verify($password, $user['password'])) { 
             return redirect()->back()->with('error', 'Incorrect password.');
         }
-       */
-        // For production use:
-        if (!password_verify($password, $user['password'])) { 
-        return redirect()->back()->with('error', 'Incorrect password.');
-        }
+
         session()->set([
             'user_id'   => $user['id'],
             'username'  => $user['username'],
@@ -48,7 +43,7 @@ class Login extends BaseController
             return redirect()->to('/admin/dashboard');
         }
 
-        return redirect()->to('/user/dashboard');/*default dashboard*/
+        return redirect()->to('/user/dashboard');
     }
 
     public function logout()
@@ -58,3 +53,4 @@ class Login extends BaseController
         return redirect()->to('admin/login');
     }
 }
+
