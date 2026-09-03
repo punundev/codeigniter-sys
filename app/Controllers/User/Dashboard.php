@@ -22,7 +22,7 @@ class Dashboard extends BaseController
             ->where('id', $userId)
             ->first();
 
-        return view('user/dashboard', [
+        return view('admin/dashboard', [
             'user' => $user
         ]);
     }

@@ -14,7 +14,6 @@ class User extends BaseController
         $this->userModel = new UserModel();
     }
 
-    // LIST + SEARCH + PAGINATION
     public function index()
     {
         $keyword = $this->request->getGet('search');
@@ -35,16 +34,14 @@ class User extends BaseController
             'search' => $keyword
         ];
 
-        return view('user/index', $data);
+        return view('admin/user/index', $data);
     }
 
-    // SHOW CREATE FORM
     public function create()
     {
-        return view('user/create');
+        return view('admin/user/create');
     }
 
-    // INSERT
     public function store()
     {
         $this->userModel->save([
@@ -57,18 +54,16 @@ class User extends BaseController
             'status'   => $this->request->getPost('status'),
         ]);
 
-        return redirect()->to('/user')->with('success', 'User added successfully');
+        return redirect()->to('/admin/user')->with('success', 'User added successfully');
     }
 
-    // SHOW EDIT FORM
     public function edit($id)
     {
         $data['user'] = $this->userModel->find($id);
 
-        return view('user/edit', $data);
+        return view('admin/user/edit', $data);
     }
 
-    // UPDATE
     public function update($id)
     {
         $data = [
@@ -89,14 +84,15 @@ class User extends BaseController
 
         $this->userModel->update($id, $data);
 
-        return redirect()->to('/user')->with('success', 'User updated successfully');
+        return redirect()->to('/admin/user')->with('success', 'User updated successfully');
     }
 
-    // DELETE
     public function delete($id)
     {
         $this->userModel->delete($id);
 
-        return redirect()->to('/user')->with('success', 'User deleted successfully');
+        return redirect()->to('/admin/user')->with('success', 'User deleted successfully');
     }
 }
+
+

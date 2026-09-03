@@ -1,7 +1,7 @@
 <?= $this->extend('layouts/main') ?>
 
 <?= $this->section('title') ?>
-Inventory List
+User List
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
@@ -12,10 +12,10 @@ Inventory List
         <h4 class="card-title">User List</h4>
         <div class="d-flex justify-content-between mb-3">
           <div>
-            <a href="<?= site_url('user/create') ?>" class="btn btn-success font-weight-semibold">Add Users</a>
-            <a href="<?= site_url('user/export') ?>" class="btn btn-success font-weight-semibold">Export Users</a>
+            <a href="<?= site_url('admin/user/create') ?>" class="btn btn-success font-weight-semibold">Add Users</a>
+            <a href="<?= site_url('admin/user/export') ?>" class="btn btn-success font-weight-semibold">Export Users</a>
           </div>
-          <form method="get" action="<?= site_url('user') ?>" class="form-inline">
+          <form method="get" action="<?= site_url('admin/user') ?>" class="form-inline">
             <input type="text" name="search" class="form-control mr-2" placeholder="Search..." value="<?= esc($search ?? '') ?>">
             <button class="btn btn-primary font-weight-semibold">Search</button>
           </form>
@@ -43,10 +43,10 @@ Inventory List
                   <td><?= esc($u['email']) ?></td>
                   <td><?= esc($u['phone']) ?></td>
                   <td><?= esc($u['role']) ?></td>
-		  <td><?= esc($u['status']) ?></td>
+                  <td><?= esc($u['status']) ?></td>
                  <td>
-                      <a href="<?= site_url('user/edit/' . $u['id']) ?>" class="btn btn-warning btn-xs">Edit</a>
-                      <a href="<?= site_url('user/delete/' . $u['id']) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Delete this record?')">Delete</a>
+                      <a href="<?= site_url('admin/user/edit/' . $u['id']) ?>" class="btn btn-warning btn-xs">Edit</a>
+                      <a href="<?= site_url('admin/user/delete/' . $u['id']) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Delete this record?')">Delete</a>
                     </td>
                   </tr>
                 <?php endforeach; ?>
@@ -61,3 +61,4 @@ Inventory List
   </div>
 </div>
 <?= $this->endSection() ?>
+

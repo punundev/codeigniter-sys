@@ -15,7 +15,7 @@ Edit User
                 <h4 class="card-title">Edit User</h4>
 
                 <form class="forms-sample"
-                      action="<?= site_url('user/update/' . $user['id']) ?>"
+                      action="<?= site_url('admin/user/update/' . $user['id']) ?>"
                       method="post">
 
                     <?= csrf_field() ?>
@@ -114,7 +114,7 @@ Edit User
                         Update
                     </button>
 
-                    <a href="<?= site_url('user') ?>"
+                    <a href="<?= site_url('admin/user') ?>"
                        class="btn btn-light font-weight-semibold">
                         Back
                     </a>

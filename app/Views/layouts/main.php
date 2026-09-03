@@ -242,7 +242,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= site_url('user') ?>">
+            <a class="nav-link" href="<?= site_url('admin/user') ?>">
               <i class="menu-icon typcn typcn-user-outline"></i>
               <span class="menu-title">User</span>
             </a>

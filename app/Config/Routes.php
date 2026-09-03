@@ -2,8 +2,6 @@
 
 use CodeIgniter\Router\RouteCollection;
 
-/** @var RouteCollection $routes */
-$routes->get('admin/login', 'Login::index');
 $routes->get('admin/login', 'Login::index');
 $routes->get('/', 'Login::index');
 $routes->post('login/auth', 'Login::auth');
@@ -11,23 +9,14 @@ $routes->get('logout', 'Login::logout');
 $routes->get('admin/logout', 'Login::logout');
 $routes->get('admin/dashboard', 'Admin\Dashboard::index');
 $routes->get('user/dashboard', 'User\Dashboard::index');
-$routes->group('user', function ($routes) {
-    $routes->get('/', 'User\User::index');
-});
 
-
-$routes->group('user', function($routes) {
-
+$routes->group('admin/user', function($routes) {
     $routes->get('/', 'User\User::index');
     $routes->get('create', 'User\User::create');
     $routes->post('store', 'User\User::store');
-
     $routes->get('edit/(:num)', 'User\User::edit/$1');
     $routes->post('update/(:num)', 'User\User::update/$1');
-
     $routes->get('delete/(:num)', 'User\User::delete/$1');
-   $routes->get('view/(:num)', 'Inventory\Inventory::view/$1');
-
 });
 
 $routes->group('inventory', function ($routes) {
