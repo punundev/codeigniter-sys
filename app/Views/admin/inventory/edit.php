@@ -10,7 +10,7 @@ Edit Inventory
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Edit Inventory</h4>
-        <form class="forms-sample" action="<?= site_url('inventory/update/' . $inventory['id']) ?>" method="post">
+        <form class="forms-sample" action="<?= site_url('admin/inventory/update/' . $inventory['id']) ?>" method="post">
           <div class="form-group">
             <label for="device_name">device_name</label>
             <input type="text" name="device_name" id="device_name" class="form-control" value="<?= esc($inventory['device_name']) ?>" required>
@@ -134,7 +134,7 @@ Edit Inventory
           </div>
 		  
           <button type="submit" class="btn btn-primary mr-2 font-weight-semibold">Update</button>
-          <a href="<?= site_url('inventory') ?>" class="btn btn-light font-weight-semibold">Back</a>
+          <a href="<?= site_url('admin/inventory') ?>" class="btn btn-light font-weight-semibold">Back</a>
         </form>
       </div>
     </div>

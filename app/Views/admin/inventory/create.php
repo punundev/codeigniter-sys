@@ -10,7 +10,7 @@ Add Inventory
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Add Inventory</h4>
-        <form class="forms-sample" action="<?= site_url('inventory/store') ?>" method="post">
+        <form class="forms-sample" action="<?= site_url('admin/inventory/store') ?>" method="post">
 		
           <div class="form-group">
             <label for="device_name">Device Name</label>
@@ -125,7 +125,7 @@ Add Inventory
             <input type="text" name="updated_at" id="updated_at" class="form-control" placeholder="updated_at">
           </div>
           <button type="submit" class="btn btn-success mr-2 font-weight-semibold">Save</button>
-          <a href="<?= site_url('inventory') ?>" class="btn btn-light font-weight-semibold">Back</a>
+          <a href="<?= site_url('admin/inventory') ?>" class="btn btn-light font-weight-semibold">Back</a>
 		  
         </form>
       </div>

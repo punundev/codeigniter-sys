@@ -34,28 +34,24 @@ Inventory List
                     <!-- Left -->
                     <div>
 
-                        <a href="<?= site_url('inventory/create') ?>"
+                        <a href="<?= site_url('admin/inventory/create') ?>"
                            class="btn btn-success font-weight-semibold">
                             Add Inventory
                         </a>
 
-                        <a href="<?= site_url('inventory/export') ?>"
+                        <a href="<?= site_url('admin/inventory/export') ?>"
                            class="btn btn-success font-weight-semibold">
                             Export Excel
                         </a>
 
                     </div>
-                    <div class="">
-                                 <h2 class="font-weight-bold">
-                                 <?= number_format($totalComputers ?? 0) ?>
-                                </h2>
-                    </div>
+
 
                     <!-- Right - Search -->
                     <div>
 
                         <form method="get"
-                              action="<?= site_url('inventory') ?>"
+                              action="<?= site_url('admin/inventory') ?>"
                               class="d-flex">
 
                             <input type="text"
@@ -101,11 +97,19 @@ Inventory List
         <?php endforeach; ?>
 
     </select>
-   </div>
 
 
 
 
+
+
+
+
+
+
+
+
+	         </div>
 
                     <!-- RAM -->
                     <div class="col-12 col-sm-6 col-md-4 col-lg-1">
@@ -246,7 +250,7 @@ Inventory List
                     <!-- Clear -->
                     <div class="col-12 col-sm-6 col-md-4 col-lg-1">
 
-                        <a href="<?= site_url('inventory') ?>"
+                        <a href="<?= site_url('admin/inventory') ?>"
                            class="btn btn-secondary w-100">
 
                             Clear
@@ -374,8 +378,8 @@ Inventory List
 
                                     <td>
                                   <button type="button" class="btn btn-info btn-sm btn-view" data-id="<?= $item['id'] ?>"> View </button>
-                                  <a href="<?= site_url('inventory/edit/' . $item['id']) ?>" class="btn btn-warning btn-xs">Edit</a>
-                                  <a href="<?= site_url('inventory/delete/' . $item['id']) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Delete this record?')">Delete</a>
+                                  <a href="<?= site_url('admin/inventory/edit/' . $item['id']) ?>" class="btn btn-warning btn-xs">Edit</a>
+                                  <a href="<?= site_url('admin/inventory/delete/' . $item['id']) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Delete this record?')">Delete</a>
                                     </td>
 
                                 </tr>
@@ -477,7 +481,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         const url =
-            "<?= site_url('inventory/ajaxFilter') ?>" +
+            "<?= site_url('admin/inventory/ajaxFilter') ?>" +
 
             "?ram=" + encodeURIComponent(ram) +
 
@@ -609,9 +613,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         </td>
 
                         <td>
-                          <button type="button" class="btn btn-info btn-sm btn-view" data-id="${item.id}"> View </button>
-                            <a href="<?= site_url('inventory/edit') ?>/${item.id}" class="btn btn-warning btn-sm">Edit</a>
-                            <a href="<?= site_url('inventory/delete/' . $item['id']) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Delete this record?')">Delete</a>
+                          <button type="button" class="btn btn-info btn-sm btn-view" data-id="${item.id}"> View1 </button>
+                            <a href="<?= site_url('admin/inventory/edit') ?>/${item.id}" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="<?= site_url('admin/inventory/delete/' . $item['id']) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Delete this record?')">Delete</a>
                         </td>
 
                     </tr>
@@ -720,7 +724,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 <h5 class="modal-title">
                     Inventory Information
                 </h5>
-           <button type="button" class="btn btn-secondary" data-dismiss="modal"> Close </button>
+
+                <button type="button"
+                        class="btn-close btn-close-white"
+                        data-bs-dismiss="modal"
+                        aria-label="Close">
+                </button>
+
             </div>
 
             <div class="modal-body">
@@ -728,6 +738,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div id="popupBody">
                     Loading...
                 </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                    Close
+                </button>
 
             </div>
 
@@ -765,7 +785,7 @@ document.addEventListener('click', function (event) {
     modal.show();
 
     // Get inventory information
-    fetch("<?= site_url('inventory/view') ?>/" + id)
+    fetch("<?= site_url('admin/inventory/view') ?>/" + id)
 
         .then(response => {
 

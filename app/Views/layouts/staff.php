@@ -77,7 +77,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= site_url('inventory') ?>">
+            <a class="nav-link" href="<?= site_url('admin/inventory') ?>">
               <i class="menu-icon typcn typcn-bell"></i>
               <span class="menu-title">Inventory Lookup</span>
             </a>

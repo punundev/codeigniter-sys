@@ -19,35 +19,16 @@ $routes->group('admin/user', function($routes) {
     $routes->get('delete/(:num)', 'User\User::delete/$1');
 });
 
-$routes->group('inventory', function ($routes) {
-
-    // Inventory list
+$routes->group('admin/inventory', function ($routes) {
     $routes->get('/', 'Inventory\Inventory::index');
-
-    // Create
     $routes->get('create', 'Inventory\Inventory::create');
-
-    // Store
     $routes->post('store', 'Inventory\Inventory::store');
-
-    // Edit
     $routes->get('edit/(:num)', 'Inventory\Inventory::edit/$1');
-
-    // Update
     $routes->post('update/(:num)', 'Inventory\Inventory::update/$1');
-
-    // Delete
     $routes->get('delete/(:num)', 'Inventory\Inventory::delete/$1');
-
-    // View inventory as JSON
     $routes->get('view/(:num)', 'Inventory\Inventory::view/$1');
-
-    // AJAX filter
     $routes->get('ajaxFilter', 'Inventory\Inventory::ajaxFilter');
-
-    // Excel export
     $routes->get('export', 'Inventory\Inventory::exportExcel');
-
 });
 
 $routes->group('admin/stock', function($routes) {
