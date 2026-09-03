@@ -10,16 +10,9 @@ class Dashboard extends BaseController
     {
         $db = \Config\Database::connect();
 
-        // =========================================
-        // TOTAL ITEMS
-        // =========================================
         $totalItems = $db->table('stock_items')
             ->countAllResults();
 
-
-        // =========================================
-        // TOTAL STOCK IN
-        // =========================================
         $stockInRow = $db->table('stock_transactions')
             ->selectSum('quantity')
             ->where('transaction_type', 'IN')
@@ -28,10 +21,6 @@ class Dashboard extends BaseController
 
         $stockIn = $stockInRow->quantity ?? 0;
 
-
-        // =========================================
-        // TOTAL STOCK OUT
-        // =========================================
         $stockOutRow = $db->table('stock_transactions')
             ->selectSum('quantity')
             ->where('transaction_type', 'OUT')
@@ -40,25 +29,15 @@ class Dashboard extends BaseController
 
         $stockOut = $stockOutRow->quantity ?? 0;
 
-
-        // =========================================
-        // CURRENT BALANCE
-        // =========================================
         $balance = $stockIn - $stockOut;
 
-
-        // =========================================
-        // SEND DATA TO DASHBOARD
-        // =========================================
         $data = [
             'totalItems' => $totalItems,
             'stockIn'    => $stockIn,
             'stockOut'   => $stockOut,
             'balance'    => $balance
         ];
-         
 
-       // Count inventory by manufacturer
         $manufacturerData = $db->table('inventory')
             ->select('manufacturer, COUNT(*) AS total')
             ->where('manufacturer IS NOT NULL')
@@ -69,8 +48,7 @@ class Dashboard extends BaseController
             ->getResultArray();
 
         $data['manufacturerData'] = $manufacturerData;
-	// select from inventory
-	
+
         return view('admin/dashboard', $data);
     }
 }
