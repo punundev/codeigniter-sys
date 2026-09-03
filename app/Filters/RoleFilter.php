@@ -11,6 +11,7 @@ class RoleFilter implements FilterInterface
     public function before(RequestInterface $request, $params = null)
     {
         $path = ltrim($request->getUri()->getPath(), '/');
+        $path = preg_replace('/^index\.php\/?/', '', $path);
 
         if (in_array($path, ['', 'admin/login', 'login/auth', 'logout', 'admin/logout'])) {
             return;
