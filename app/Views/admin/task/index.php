@@ -23,11 +23,11 @@ IT Task Management
             </p>
         </div>
 
-        <a href="<?= site_url('task/create') ?>"
+        <!---<a href="<?= site_url('admin/task/create') ?>"
            class="btn btn-primary">
             <i class="fas fa-plus"></i>
             New Task
-        </a>
+        </a>---!>
 
     </div>
 
@@ -182,11 +182,11 @@ IT Task Management
                 </div>
 
 
-                <div class="col-md-2">
+                <div class="col-md-1">
 
                     <label>&nbsp;</label>
 
-                    <a href="<?= site_url('task/report') ?>"
+                    <a href="<?= site_url('admin/task/report') ?>"
                        class="btn btn-success btn-block">
 
                         <i class="fas fa-file-alt"></i>
@@ -196,6 +196,26 @@ IT Task Management
 
                 </div>
 
+
+
+
+                  <div class="col-md-1">
+
+                    <label>&nbsp;</label>
+
+                      <a href="<?= site_url('admin/task/create') ?>"  class="btn btn-success btn-block">
+
+                        <i class="fas fa-file-alt"></i>
+                        New Task
+
+                    </a>
+
+                </div>
+
+
+
+
+		
             </div>
 
         </div>
@@ -389,23 +409,23 @@ IT Task Management
 
                                 <td>
 
-                                    <a href="<?= site_url('task/view/' . $task['id']) ?>"
+                                    <a href="<?= site_url('admin/task/view/' . $task['id']) ?>"
                                        class="btn btn-info btn-sm">
 
-                                        <i class="fas fa-eye">view</i>
+                                        <i class="fas fa-eye">View</i>
 
                                     </a>
 
 
-                                    <a href="<?= site_url('task/edit/' . $task['id']) ?>"
+                                    <a href="<?= site_url('admin/task/edit/' . $task['id']) ?>"
                                        class="btn btn-warning btn-sm">
 
-                                        <i class="fas fa-edit">edit</i>
+                                        <i class="fas fa-edit">Edit</i>
 
                                     </a>
 
 
-                                    <a href="<?= site_url('task/worklog/create/' . $task['id']) ?>"
+                                    <a href="<?= site_url('admin/task/worklog/create/' . $task['id']) ?>"
                                        class="btn btn-success btn-sm"
                                        title="Add Daily Work">
 
@@ -438,18 +458,19 @@ IT Task Management
 
                     <?php endif; ?>
 
-                    </table>
-               </tbody>
+                    </tbody>
 
-                  </table>
+                </table>
 
             </div>
-            
 
-</table>
+        </div>
 
+    </div>
+
+</div>
 <!-- PAGINATION -->
-<div class="d-flex justify-content-between align-items-center mt-1">
+<div class="d-flex justify-content-between align-items-center mt-3">
 
     <div>
         <small class="text-muted"
@@ -464,14 +485,7 @@ IT Task Management
     </nav>
 
 </div>
-
-</div>
-
-        </div>
-
-    </div>
-
-</div>
+</table>
 
 
 <script>
@@ -869,7 +883,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 </script>
-
 
 <?= $this->endSection() ?>
 

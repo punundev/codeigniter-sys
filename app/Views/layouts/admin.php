@@ -256,7 +256,7 @@
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href=" <?= site_url('task') ?> ">Daily Task</a>
+                  <a class="nav-link" href=" <?= site_url('admin/task') ?> ">Daily Task</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="pages/samples/error-404.html"> Home </a> 

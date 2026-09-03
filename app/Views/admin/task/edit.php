@@ -16,7 +16,7 @@ Edit Task
 
         <div class="card-body">
 
-            <form action="<?= site_url('task/update/' . $task['id']) ?>"
+            <form action="<?= site_url('admin/task/update/' . $task['id']) ?>"
                   method="post">
 
                 <?= csrf_field() ?>
@@ -267,7 +267,7 @@ Edit Task
                         Update Task
                     </button>
 
-                    <a href="<?= site_url('task') ?>"
+                    <a href="<?= site_url('admin/task') ?>"
                        class="btn btn-secondary">
                         Cancel
                     </a>

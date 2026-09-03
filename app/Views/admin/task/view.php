@@ -18,7 +18,7 @@ Task Details
 
         <div>
 
-            <a href="<?= site_url('task/worklog/create/' . $task['id']) ?>"
+            <a href="<?= site_url('admin/task/worklog/create/' . $task['id']) ?>"
                class="btn btn-success">
 
                 <i class="fas fa-plus"></i>
@@ -26,7 +26,7 @@ Task Details
 
             </a>
 
-            <a href="<?= site_url('task') ?>"
+            <a href="<?= site_url('admin/task') ?>"
                class="btn btn-secondary">
 
                 Back
@@ -275,7 +275,7 @@ Task Details
                         No daily work recorded yet.
                     </p>
 
-                    <a href="<?= site_url('task/worklog/create/' . $task['id']) ?>"
+                    <a href="<?= site_url('admin/task/worklog/create/' . $task['id']) ?>"
                        class="btn btn-success">
 
                         Add First Work Log

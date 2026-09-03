@@ -17,7 +17,7 @@ IT Task Reports
 
         </div>
 
-        <!---<a href="<?= site_url('task') ?>"
+        <!---<a href="<?= site_url('admin/task') ?>"
            class="btn btn-secondary">
 
             <i class="fas fa-arrow-left"></i>
@@ -49,7 +49,7 @@ IT Task Reports
 
             <form
                 method="get"
-                action="<?= site_url('task/report') ?>"
+                action="<?= site_url('admin/task/report') ?>"
             >
 
                 <div class="row">
@@ -167,7 +167,7 @@ IT Task Reports
 
                     </div>
                      <div  class="col-md-6 mb-3">
-                            <a href="<?= site_url('task') ?>"
+                            <a href="<?= site_url('admin/task') ?>"
                              class="btn btn-secondary">
 
                        <i class="fas fa-arrow-left"></i>
@@ -616,7 +616,7 @@ function exportReport()
 
 
     const url =
-        "<?= site_url('task/report/export') ?>" +
+        "<?= site_url('admin/task/report/export') ?>" +
 
         "?period=" +
         encodeURIComponent(period) +

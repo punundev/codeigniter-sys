@@ -50,31 +50,17 @@ $routes->group('admin/stock', function($routes) {
     $routes->get('reports', 'Stock\Stock::reports');
 });
 
-$routes->group('task', function ($routes) {
-
-    // Task
+$routes->group('admin/task', function ($routes) {
     $routes->get('/', 'Task\Task::index');
     $routes->get('create', 'Task\Task::create');
     $routes->post('store', 'Task\Task::store');
-
-    // View
     $routes->get('view/(:num)', 'Task\Task::view/$1');
-
-    // Edit
     $routes->get('edit/(:num)', 'Task\Task::edit/$1');
-
-    // Update
     $routes->post('update/(:num)', 'Task\Task::update/$1');
-
-    // Delete
     $routes->get('delete/(:num)', 'Task\Task::delete/$1');
-
-    // Work Log
     $routes->get('worklog/create/(:num)', 'Task\WorkLog::create/$1');
     $routes->post('worklog/store', 'Task\WorkLog::store');
-     // Task Report
     $routes->get('report', 'Task\Task::report');
     $routes->get('report/export', 'Task\Task::exportReport');
-   // Task Dashboard Chart
     $routes->get('dashboard-chart', 'Task\Task::dashboardChart');
 });

@@ -16,7 +16,7 @@ Add Work Log
 
         <div class="card-body">
 
-            <form action="<?= site_url('task/worklog/store') ?>"
+            <form action="<?= site_url('admin/task/worklog/store') ?>"
                   method="post">
 
                 <?= csrf_field() ?>
@@ -139,7 +139,7 @@ Add Work Log
                     Save Work Log
                 </button>
 
-                <a href="<?= site_url('task/view/' . $task_id) ?>"
+                <a href="<?= site_url('admin/task/view/' . $task_id) ?>"
                    class="btn btn-secondary">
                     Cancel
                 </a>

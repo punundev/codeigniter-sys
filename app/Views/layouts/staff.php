@@ -71,7 +71,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= site_url('task') ?>">
+            <a class="nav-link" href="<?= site_url('admin/task') ?>">
               <i class="menu-icon typcn typcn-document-add"></i>
               <span class="menu-title">My Tasks</span>
             </a>

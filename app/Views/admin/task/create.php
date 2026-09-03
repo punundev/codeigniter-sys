@@ -15,7 +15,7 @@ Create Task
 
         <div class="card-body">
 
-            <form action="<?= site_url('task/store') ?>" method="post">
+            <form action="<?= site_url('admin/task/store') ?>" method="post">
 
                 <?= csrf_field() ?>
 
@@ -65,7 +65,7 @@ Create Task
                     Save Task
                 </button>
 
-                <a href="<?= site_url('task') ?>"
+                <a href="<?= site_url('admin/task') ?>"
                    class="btn btn-secondary">
                     Cancel
                 </a>

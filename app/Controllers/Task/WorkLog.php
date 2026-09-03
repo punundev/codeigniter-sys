@@ -16,7 +16,7 @@ class WorkLog extends BaseController
 
     public function create($taskId)
     {
-        return view('task/worklog/create', [
+        return view('admin/task/worklog/create', [
             'task_id' => $taskId
         ]);
     }
@@ -39,7 +39,7 @@ class WorkLog extends BaseController
         ]);
 
         return redirect()->to(
-            '/task/view/' . $this->request->getPost('task_id')
+            '/admin/task/view/' . $this->request->getPost('task_id')
         );
     }
 }
