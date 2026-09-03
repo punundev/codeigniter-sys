@@ -284,26 +284,21 @@
         </div>
         <footer class="footer">
           <div class="container-fluid clearfix">
-           <!-- <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2026</span>--!>
-                        
           </div>
         </footer>
       </div>
     </div>
   </div>
-  <!-- Vendor JS -->
 <script src="<?= base_url('assets/vendors/js/vendor.bundle.base.js') ?>"></script>
 <script src="<?= base_url('assets/vendors/js/vendor.bundle.addons.js') ?>"></script>
 
-<!-- Shared JS -->
 <script src="<?= base_url('assets/js/shared/off-canvas.js') ?>"></script>
 <script src="<?= base_url('assets/js/shared/misc.js') ?>"></script>
 <script src="<?= base_url('assets/js/shared/jquery.cookie.js') ?>"></script>
 
-<!-- Dashboard JS -->
 <script src="<?= base_url('assets/js/demo_1/dashboard.js') ?>"></script>
 
-<!-- Custom JS -->
 <script src="<?= base_url('assets/js/inventory.js') ?>"></script>
 </body>
 </html>
+
