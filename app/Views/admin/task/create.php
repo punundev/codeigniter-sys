@@ -61,14 +61,10 @@ Create Task
                     </select>
                 </div>
 
-                <button type="submit" class="btn btn-primary">
-                    Save Task
-                </button>
-
-                <a href="<?= site_url('admin/task') ?>"
-                   class="btn btn-secondary">
-                    Cancel
-                </a>
+                <div class="d-flex" style="gap: 4px;">
+                    <button type="submit" class="btn btn-primary font-weight-semibold">Save Task</button>
+                    <a href="<?= site_url('admin/task') ?>" class="btn btn-secondary font-weight-semibold">Cancel</a>
+                </div>
 
             </form>
 

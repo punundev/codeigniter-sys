@@ -1,4 +1,4 @@
-<?= $this->extend('layouts/admin') ?>
+<?= $this->extend('layouts/staff') ?>
 
 <?= $this->section('title') ?>
 Add Inventory
@@ -10,7 +10,7 @@ Add Inventory
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Add Inventory</h4>
-        <form class="forms-sample" action="<?= site_url('admin/inventory/store') ?>" method="post">
+        <form class="forms-sample" action="<?= site_url('staff/inventory/store') ?>" method="post">
 		
           <div class="form-group">
             <label for="device_name">Device Name</label>
@@ -126,7 +126,7 @@ Add Inventory
           </div>
           <div class="d-flex" style="gap: 4px;">
             <button type="submit" class="btn btn-success font-weight-semibold">Save</button>
-            <a href="<?= site_url('admin/inventory') ?>" class="btn btn-secondary font-weight-semibold">Back</a>
+            <a href="<?= site_url('staff/inventory') ?>" class="btn btn-secondary font-weight-semibold">Back</a>
           </div>
 		  
         </form>

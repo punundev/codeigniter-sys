@@ -1,0 +1,875 @@
+
+<?= $this->extend('layouts/staff') ?>
+
+<?= $this->section('title') ?>
+IT Task Management
+<?= $this->endSection() ?>
+
+<?= $this->section('content') ?>
+
+<div class="container-fluid">
+
+    <!-- HEADER -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <h3 class="mb-1">
+                <i class="fas fa-tasks"></i>
+                IT Task Management
+            </h3>
+
+            <p class="text-muted mb-0">
+                Manage computer problems, software installation, licenses and daily IT work.
+            </p>
+        </div>
+
+        <a href="<?= site_url('staff/task/create') ?>"
+           class="btn btn-primary">
+            <i class="fas fa-plus"></i>
+            New Task
+        </a>
+
+    </div>
+
+
+    <!-- SUMMARY CARDS -->
+    <div class="row mb-4">
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+
+                    <h6 class="text-muted">
+                        Total Tasks
+                    </h6>
+
+                    <h2>
+                        <?= count($tasks) ?>
+                    </h2>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+
+                    <h6 class="text-muted">
+                        Open
+                    </h6>
+
+                    <h2 class="text-warning">
+
+                        <?php
+                        echo count(
+                            array_filter($tasks, function ($task) {
+                                return ($task['status'] ?? '') === 'Open';
+                            })
+                        );
+                        ?>
+
+                    </h2>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+
+                    <h6 class="text-muted">
+                        In Progress
+                    </h6>
+
+                    <h2 class="text-info">
+
+                        <?php
+                        echo count(
+                            array_filter($tasks, function ($task) {
+                                return ($task['status'] ?? '') === 'In Progress';
+                            })
+                        );
+                        ?>
+
+                    </h2>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+
+                    <h6 class="text-muted">
+                        Completed
+                    </h6>
+
+                    <h2 class="text-success">
+
+                        <?php
+                        echo count(
+                            array_filter($tasks, function ($task) {
+                                return ($task['status'] ?? '') === 'Completed';
+                            })
+                        );
+                        ?>
+
+                    </h2>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- FILTER / SEARCH -->
+    <div class="card shadow-sm border-0 mb-4">
+
+        <div class="card-body">
+
+            <div class="row">
+
+                <div class="col-md-5">
+                    <label>Search</label>
+
+                    <input type="text"
+                           id="taskSearch"
+                           class="form-control"
+                           placeholder="Search task, computer, problem...">
+                </div>
+
+
+                <div class="col-md-3">
+
+                    <label>Status</label>
+
+                    <select id="statusFilter"
+                            class="form-control">
+
+                        <option value="">All Status</option>
+                        <option value="Open">Open</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Pending">Pending</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="col-md-2">
+
+                    <label>Priority</label>
+
+                    <select id="priorityFilter"
+                            class="form-control">
+
+                        <option value="">All Priority</option>
+                        <option value="Low">Low</option>
+                        <option value="Normal">Normal</option>
+                        <option value="High">High</option>
+                        <option value="Urgent">Urgent</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="col-md-2">
+
+                    <label>&nbsp;</label>
+
+                    <a href="<?= site_url('staff/task/report') ?>"
+                       class="btn btn-success btn-block">
+
+                        <i class="fas fa-file-alt"></i>
+                        Reports
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TASK TABLE -->
+    <div class="card shadow-sm border-0">
+
+        <div class="card-header bg-white">
+
+            <h5 class="mb-0">
+                Task List
+            </h5>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <div class="table-responsive">
+
+                <table class="table table-bordered table-hover"
+                       id="taskTable">
+
+                    <thead class="thead-light">
+
+                        <tr>
+
+                            <th>#</th>
+
+                            <th>Date</th>
+
+                            <th>Computer</th>
+
+                            <th>Task</th>
+
+                            <th>Category</th>
+
+                            <th>Priority</th>
+
+                            <th>Status</th>
+
+                            <th>Assigned To</th>
+
+                            <th width="150">
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                    <?php if (!empty($tasks)): ?>
+
+                        <?php foreach ($tasks as $key => $task): ?>
+
+                            <tr>
+
+                                <td>
+                                    <?= $key + 1 ?>
+                                </td>
+
+
+                                <td>
+                                    <?= esc($task['task_date'] ?? '') ?>
+                                </td>
+
+
+                                <td>
+
+                                    <?php if (!empty($task['inventory_id'])): ?>
+
+                                        <span class="badge badge-primary">
+                                            Inventory #<?= esc($task['inventory_id']) ?>
+                                        </span>
+
+                                    <?php else: ?>
+
+                                        <span class="text-muted">
+                                            -
+                                        </span>
+
+                                    <?php endif; ?>
+
+                                </td>
+
+
+                                <td>
+
+                                    <strong>
+                                        <?= esc($task['task_title'] ?? '') ?>
+                                    </strong>
+
+                                    <?php if (!empty($task['problem_description'])): ?>
+
+                                        <br>
+
+                                        <small class="text-muted">
+
+                                            <?= esc(
+                                                substr(
+                                                    $task['problem_description'],
+                                                    0,
+                                                    80
+                                                )
+                                            ) ?>
+
+                                        </small>
+
+                                    <?php endif; ?>
+
+                                </td>
+
+
+                                <td>
+                                    <?= esc($task['problem_category'] ?? '-') ?>
+                                </td>
+
+
+                                <td>
+
+                                    <?php
+                                    $priority = $task['priority'] ?? 'Normal';
+
+                                    $priorityClass = 'badge-secondary';
+
+                                    if ($priority === 'Low') {
+                                        $priorityClass = 'badge-success';
+                                    }
+
+                                    if ($priority === 'Normal') {
+                                        $priorityClass = 'badge-primary';
+                                    }
+
+                                    if ($priority === 'High') {
+                                        $priorityClass = 'badge-warning';
+                                    }
+
+                                    if ($priority === 'Urgent') {
+                                        $priorityClass = 'badge-danger';
+                                    }
+                                    ?>
+
+                                    <span class="badge <?= $priorityClass ?>">
+                                        <?= esc($priority) ?>
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <?php
+                                    $status = $task['status'] ?? 'Open';
+
+                                    $statusClass = 'badge-secondary';
+
+                                    if ($status === 'Open') {
+                                        $statusClass = 'badge-warning';
+                                    }
+
+                                    if ($status === 'In Progress') {
+                                        $statusClass = 'badge-info';
+                                    }
+
+                                    if ($status === 'Completed') {
+                                        $statusClass = 'badge-success';
+                                    }
+
+                                    if ($status === 'Pending') {
+                                        $statusClass = 'badge-danger';
+                                    }
+                                    ?>
+
+                                    <span class="badge <?= $statusClass ?>">
+                                        <?= esc($status) ?>
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+                                    <?= esc($task['assigned_to'] ?? '-') ?>
+                                </td>
+
+
+                                <td>
+
+                                    <a href="<?= site_url('staff/task/view/' . $task['id']) ?>"
+                                       class="btn btn-info btn-sm">
+
+                                        <i class="fas fa-eye">view</i>
+
+                                    </a>
+
+
+                                    <a href="<?= site_url('staff/task/edit/' . $task['id']) ?>"
+                                       class="btn btn-warning btn-sm">
+
+                                        <i class="fas fa-edit">edit</i>
+
+                                    </a>
+
+
+                                    <a href="<?= site_url('staff/task/worklog/create/' . $task['id']) ?>"
+                                       class="btn btn-success btn-sm"
+                                       title="Add Daily Work">
+
+                                        <i class="fas fa-plus">Add</i>
+
+                                    </a>
+
+                                </td>
+
+                            </tr>
+
+                        <?php endforeach; ?>
+
+                    <?php else: ?>
+
+                        <tr>
+
+                            <td colspan="9"
+                                class="text-center text-muted py-5">
+
+                                <i class="fas fa-inbox fa-2x mb-3"></i>
+
+                                <br>
+
+                                No tasks found.
+
+                            </td>
+
+                        </tr>
+
+                    <?php endif; ?>
+
+                    </table>
+               </tbody>
+
+                  </table>
+
+            </div>
+            
+
+</table>
+
+<!-- PAGINATION -->
+<div class="d-flex justify-content-between align-items-center mt-1">
+
+    <div>
+        <small class="text-muted"
+               id="paginationInfo">
+        </small>
+    </div>
+
+    <nav>
+        <ul class="pagination pagination-sm mb-0"
+            id="taskPagination">
+        </ul>
+    </nav>
+
+</div>
+
+</div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    const search = document.getElementById('taskSearch');
+    const status = document.getElementById('statusFilter');
+    const priority = document.getElementById('priorityFilter');
+
+    const table = document.getElementById('taskTable');
+    const tbody = table.querySelector('tbody');
+
+    const pagination = document.getElementById('taskPagination');
+    const paginationInfo = document.getElementById('paginationInfo');
+
+    const allRows = Array.from(
+        tbody.querySelectorAll('tr')
+    );
+
+    const rowsPerPage = 10;
+
+    let currentPage = 1;
+
+
+    // ==========================================
+    // GET FILTERED ROWS
+    // ==========================================
+
+    function getFilteredRows() {
+
+        const searchValue =
+            search.value.toLowerCase().trim();
+
+        const statusValue =
+            status.value.toLowerCase().trim();
+
+        const priorityValue =
+            priority.value.toLowerCase().trim();
+
+
+        return allRows.filter(function (row) {
+
+            // Ignore "No tasks found" row
+            if (!row.cells || row.cells.length < 9) {
+                return false;
+            }
+
+
+            const text =
+                row.innerText.toLowerCase();
+
+
+            // Status column = column 7
+            const rowStatus =
+                row.cells[6]
+                    ? row.cells[6].innerText.toLowerCase().trim()
+                    : '';
+
+
+            // Priority column = column 6
+            const rowPriority =
+                row.cells[5]
+                    ? row.cells[5].innerText.toLowerCase().trim()
+                    : '';
+
+
+            const matchesSearch =
+                !searchValue ||
+                text.includes(searchValue);
+
+
+            const matchesStatus =
+                !statusValue ||
+                rowStatus.includes(statusValue);
+
+
+            const matchesPriority =
+                !priorityValue ||
+                rowPriority.includes(priorityValue);
+
+
+            return (
+                matchesSearch &&
+                matchesStatus &&
+                matchesPriority
+            );
+
+        });
+
+    }
+
+
+    // ==========================================
+    // DISPLAY TABLE
+    // ==========================================
+
+    function displayRows() {
+
+        const filteredRows =
+            getFilteredRows();
+
+        const totalRows =
+            filteredRows.length;
+
+        const totalPages =
+            Math.ceil(totalRows / rowsPerPage);
+
+
+        // Fix current page
+        if (
+            currentPage > totalPages &&
+            totalPages > 0
+        ) {
+
+            currentPage = totalPages;
+
+        }
+
+
+        if (totalPages === 0) {
+
+            currentPage = 1;
+
+        }
+
+
+        // Hide all rows
+        allRows.forEach(function (row) {
+
+            row.style.display = 'none';
+
+        });
+
+
+        // Calculate rows
+        const start =
+            (currentPage - 1) * rowsPerPage;
+
+        const end =
+            start + rowsPerPage;
+
+
+        // Show rows for current page
+        filteredRows
+            .slice(start, end)
+            .forEach(function (row) {
+
+                row.style.display = '';
+
+            });
+
+
+        // ==========================================
+        // PAGINATION INFORMATION
+        // ==========================================
+
+        if (totalRows === 0) {
+
+            paginationInfo.innerHTML =
+                'No tasks found';
+
+        } else {
+
+            const from =
+                start + 1;
+
+            const to =
+                Math.min(end, totalRows);
+
+
+            paginationInfo.innerHTML =
+                `Showing <strong>${from}</strong>–<strong>${to}</strong> of <strong>${totalRows}</strong> tasks`;
+
+        }
+
+
+        createPagination(totalPages);
+
+    }
+
+
+    // ==========================================
+    // CREATE PAGINATION
+    // ==========================================
+
+    function createPagination(totalPages) {
+
+        pagination.innerHTML = '';
+
+
+        if (totalPages <= 1) {
+
+            return;
+
+        }
+
+
+        // ==========================================
+        // PREVIOUS
+        // ==========================================
+
+        const previous =
+            document.createElement('li');
+
+        previous.className =
+            'page-item ' +
+            (currentPage === 1
+                ? 'disabled'
+                : '');
+
+
+        previous.innerHTML = `
+            <a class="page-link" href="#">
+                Previous
+            </a>
+        `;
+
+
+        previous.addEventListener(
+            'click',
+            function (event) {
+
+                event.preventDefault();
+
+
+                if (currentPage > 1) {
+
+                    currentPage--;
+
+                    displayRows();
+
+                }
+
+            }
+        );
+
+
+        pagination.appendChild(previous);
+
+
+        // ==========================================
+        // PAGE NUMBERS
+        // ==========================================
+
+        for (
+            let page = 1;
+            page <= totalPages;
+            page++
+        ) {
+
+            const pageItem =
+                document.createElement('li');
+
+
+            pageItem.className =
+                'page-item ' +
+                (
+                    page === currentPage
+                        ? 'active'
+                        : ''
+                );
+
+
+            pageItem.innerHTML = `
+                <a class="page-link" href="#">
+                    ${page}
+                </a>
+            `;
+
+
+            pageItem.addEventListener(
+                'click',
+                function (event) {
+
+                    event.preventDefault();
+
+                    currentPage = page;
+
+                    displayRows();
+
+                }
+            );
+
+
+            pagination.appendChild(pageItem);
+
+        }
+
+
+        // ==========================================
+        // NEXT
+        // ==========================================
+
+        const next =
+            document.createElement('li');
+
+
+        next.className =
+            'page-item ' +
+            (
+                currentPage === totalPages
+                    ? 'disabled'
+                    : ''
+            );
+
+
+        next.innerHTML = `
+            <a class="page-link" href="#">
+                Next
+            </a>
+        `;
+
+
+        next.addEventListener(
+            'click',
+            function (event) {
+
+                event.preventDefault();
+
+
+                if (
+                    currentPage < totalPages
+                ) {
+
+                    currentPage++;
+
+                    displayRows();
+
+                }
+
+            }
+        );
+
+
+        pagination.appendChild(next);
+
+    }
+
+
+    // ==========================================
+    // SEARCH
+    // ==========================================
+
+    search.addEventListener(
+        'keyup',
+        function () {
+
+            currentPage = 1;
+
+            displayRows();
+
+        }
+    );
+
+
+    // ==========================================
+    // STATUS FILTER
+    // ==========================================
+
+    status.addEventListener(
+        'change',
+        function () {
+
+            currentPage = 1;
+
+            displayRows();
+
+        }
+    );
+
+
+    // ==========================================
+    // PRIORITY FILTER
+    // ==========================================
+
+    priority.addEventListener(
+        'change',
+        function () {
+
+            currentPage = 1;
+
+            displayRows();
+
+        }
+    );
+
+
+    // ==========================================
+    // INITIAL LOAD
+    // ==========================================
+
+    displayRows();
+
+});
+
+</script>
+
+
+<?= $this->endSection() ?>
+

@@ -133,8 +133,10 @@ Edit Inventory
             <input type="text" name="updated_at" id="internet_location" class="form-control" value="<?= esc($inventory['updated_at']) ?>">
           </div>
 		  
-          <button type="submit" class="btn btn-primary mr-2 font-weight-semibold">Update</button>
-          <a href="<?= site_url('manager/inventory') ?>" class="btn btn-light font-weight-semibold">Back</a>
+          <div class="d-flex" style="gap: 4px;">
+            <button type="submit" class="btn btn-primary font-weight-semibold">Update</button>
+            <a href="<?= site_url('manager/inventory') ?>" class="btn btn-secondary font-weight-semibold">Back</a>
+          </div>
         </form>
       </div>
     </div>

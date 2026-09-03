@@ -134,15 +134,10 @@ Add Work Log
                               rows="3"></textarea>
                 </div>
 
-                <button type="submit"
-                        class="btn btn-primary">
-                    Save Work Log
-                </button>
-
-                <a href="<?= site_url('staff/task/view/' . $task_id) ?>"
-                   class="btn btn-secondary">
-                    Cancel
-                </a>
+                <div class="d-flex" style="gap: 4px;">
+                    <button type="submit" class="btn btn-primary font-weight-semibold">Save Work Log</button>
+                    <a href="<?= site_url('staff/task/view/' . $task_id) ?>" class="btn btn-secondary font-weight-semibold">Cancel</a>
+                </div>
 
             </form>
 

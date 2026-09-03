@@ -14,6 +14,31 @@
   <link rel="stylesheet" href="<?= base_url('assets/css/demo_1/style.css') ?>">
   <link rel="shortcut icon" href="<?= base_url('assets/images/favicon.ico') ?>">
   <link rel="icon" type="image/x-icon" href="<?= base_url('assets/images/favicon.ico') ?>">
+  <style>
+    .btn + .btn, .btn + .btn-group, .btn-group + .btn, .btn-group + .btn-group, a.btn + a.btn, button.btn + a.btn, a.btn + button.btn, button.btn + button.btn {
+      margin-left: 4px !important;
+    }
+    td > .btn, td > a.btn, td > button.btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      margin-right: 4px !important;
+      margin-bottom: 2px !important;
+      margin-top: 2px !important;
+      vertical-align: middle !important;
+    }
+    td > .btn:last-child, td > a.btn:last-child, td > button.btn:last-child {
+      margin-right: 0 !important;
+    }
+    td > .d-flex {
+      display: flex !important;
+      align-items: center !important;
+      gap: 4px !important;
+    }
+    td {
+      vertical-align: middle !important;
+    }
+  </style>
 </head>
 
 <body>

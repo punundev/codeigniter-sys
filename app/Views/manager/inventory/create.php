@@ -124,8 +124,10 @@ Add Inventory
             <label for="updated_at">Updated_at</label>
             <input type="text" name="updated_at" id="updated_at" class="form-control" placeholder="updated_at">
           </div>
-          <button type="submit" class="btn btn-success mr-2 font-weight-semibold">Save</button>
-          <a href="<?= site_url('manager/inventory') ?>" class="btn btn-light font-weight-semibold">Back</a>
+          <div class="d-flex" style="gap: 4px;">
+            <button type="submit" class="btn btn-success font-weight-semibold">Save</button>
+            <a href="<?= site_url('manager/inventory') ?>" class="btn btn-secondary font-weight-semibold">Back</a>
+          </div>
 		  
         </form>
       </div>

@@ -96,15 +96,10 @@ Edit User
                         </select>
                     </div>
 
-                    <button type="submit"
-                            class="btn btn-primary mr-2 font-weight-semibold">
-                        Update
-                    </button>
-
-                    <a href="<?= site_url('admin/user') ?>"
-                       class="btn btn-light font-weight-semibold">
-                        Back
-                    </a>
+                    <div class="d-flex" style="gap: 4px;">
+                        <button type="submit" class="btn btn-primary font-weight-semibold">Update</button>
+                        <a href="<?= site_url('admin/user') ?>" class="btn btn-secondary font-weight-semibold">Back</a>
+                    </div>
 
                 </form>
 

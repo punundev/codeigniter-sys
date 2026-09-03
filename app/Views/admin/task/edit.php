@@ -260,18 +260,9 @@ Edit Task
 
 
                 <!-- Buttons -->
-                <div class="mt-4">
-
-                    <button type="submit"
-                            class="btn btn-primary">
-                        Update Task
-                    </button>
-
-                    <a href="<?= site_url('admin/task') ?>"
-                       class="btn btn-secondary">
-                        Cancel
-                    </a>
-
+                <div class="mt-4 d-flex" style="gap: 4px;">
+                    <button type="submit" class="btn btn-primary font-weight-semibold">Update Task</button>
+                    <a href="<?= site_url('admin/task') ?>" class="btn btn-secondary font-weight-semibold">Cancel</a>
                 </div>
 
             </form>

@@ -16,23 +16,17 @@ Task Details
             Task Details
         </h3>
 
-        <div>
-
+        <div class="d-flex" style="gap: 4px;">
             <a href="<?= site_url('staff/task/worklog/create/' . $task['id']) ?>"
-               class="btn btn-success">
-
+               class="btn btn-success font-weight-semibold">
                 <i class="fas fa-plus"></i>
                 Add Daily Work
-
             </a>
 
             <a href="<?= site_url('staff/task') ?>"
-               class="btn btn-secondary">
-
+               class="btn btn-secondary font-weight-semibold">
                 Back
-
             </a>
-
         </div>
 
     </div>
