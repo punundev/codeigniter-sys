@@ -8,6 +8,7 @@ $routes->post('login/auth', 'Login::auth');
 $routes->get('logout', 'Login::logout');
 $routes->get('admin/logout', 'Login::logout');
 $routes->get('admin/dashboard', 'Admin\Dashboard::index');
+$routes->get('manager/dashboard', 'Manager\Dashboard::index');
 $routes->get('staff/dashboard', 'Staff\Dashboard::index');
 $routes->get('user/dashboard', 'Staff\Dashboard::index');
 
@@ -86,4 +87,50 @@ $routes->group('staff/task', function ($routes) {
     $routes->get('report', 'Staff\Task::report');
     $routes->get('report/export', 'Staff\Task::exportReport');
     $routes->get('dashboard-chart', 'Staff\Task::dashboardChart');
+});
+
+$routes->group('manager/inventory', function ($routes) {
+    $routes->get('/', 'Manager\Inventory::index');
+    $routes->get('create', 'Manager\Inventory::create');
+    $routes->post('store', 'Manager\Inventory::store');
+    $routes->get('edit/(:num)', 'Manager\Inventory::edit/$1');
+    $routes->post('update/(:num)', 'Manager\Inventory::update/$1');
+    $routes->get('delete/(:num)', 'Manager\Inventory::delete/$1');
+    $routes->get('view/(:num)', 'Manager\Inventory::view/$1');
+    $routes->get('ajaxFilter', 'Manager\Inventory::ajaxFilter');
+    $routes->get('export', 'Manager\Inventory::exportExcel');
+});
+
+$routes->group('manager/stock', function($routes) {
+    $routes->get('/', 'Manager\Stock::index');
+    $routes->get('dashboard', 'Manager\Stock::dashboard');
+    $routes->get('create', 'Manager\Stock::create');
+    $routes->post('store', 'Manager\Stock::store');
+    $routes->get('edit/(:num)', 'Manager\Stock::edit/$1');
+    $routes->post('update/(:num)', 'Manager\Stock::update/$1');
+    $routes->get('delete/(:num)', 'Manager\Stock::delete/$1');
+    $routes->get('ajaxFilter', 'Manager\Stock::ajaxFilter');
+    $routes->get('stock-in', 'Manager\Stock::stockIn');
+    $routes->post('stock-in/store', 'Manager\Stock::saveStockIn');
+    $routes->get('stock-out', 'Manager\Stock::stockOut');
+    $routes->post('stock-out/store', 'Manager\Stock::saveStockOut');
+    $routes->get('history', 'Manager\Stock::history');
+    $routes->get('low-stock', 'Manager\Stock::lowStock');
+    $routes->get('serial-numbers', 'Manager\Stock::serialNumbers');
+    $routes->get('reports', 'Manager\Stock::reports');
+});
+
+$routes->group('manager/task', function ($routes) {
+    $routes->get('/', 'Manager\Task::index');
+    $routes->get('create', 'Manager\Task::create');
+    $routes->post('store', 'Manager\Task::store');
+    $routes->get('view/(:num)', 'Manager\Task::view/$1');
+    $routes->get('edit/(:num)', 'Manager\Task::edit/$1');
+    $routes->post('update/(:num)', 'Manager\Task::update/$1');
+    $routes->get('delete/(:num)', 'Manager\Task::delete/$1');
+    $routes->get('worklog/create/(:num)', 'Manager\WorkLog::create/$1');
+    $routes->post('worklog/store', 'Manager\WorkLog::store');
+    $routes->get('report', 'Manager\Task::report');
+    $routes->get('report/export', 'Manager\Task::exportReport');
+    $routes->get('dashboard-chart', 'Manager\Task::dashboardChart');
 });

@@ -198,43 +198,43 @@
           </li>
           <li class="nav-item nav-category">Manager Menu</li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= site_url('staff/dashboard') ?>">
+            <a class="nav-link" href="<?= site_url('manager/dashboard') ?>">
               <i class="menu-icon typcn typcn-document-text"></i>
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= site_url('admin/inventory') ?>">
+            <a class="nav-link" href="<?= site_url('manager/inventory') ?>">
               <i class="menu-icon typcn typcn-bell"></i>
               <span class="menu-title">Inventory</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= site_url('admin/stock') ?>">
+            <a class="nav-link" href="<?= site_url('manager/stock') ?>">
               <i class="menu-icon typcn typcn-th-large-outline"></i>
               <span class="menu-title">Stock Overview</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= site_url('admin/stock/stock-in') ?>">
+            <a class="nav-link" href="<?= site_url('manager/stock/stock-in') ?>">
               <i class="menu-icon typcn typcn-arrow-down-thick"></i>
               <span class="menu-title">Stock In</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= site_url('admin/stock/stock-out') ?>">
+            <a class="nav-link" href="<?= site_url('manager/stock/stock-out') ?>">
               <i class="menu-icon typcn typcn-arrow-up-thick"></i>
               <span class="menu-title">Stock Out</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= site_url('admin/task') ?>">
+            <a class="nav-link" href="<?= site_url('manager/task') ?>">
               <i class="menu-icon typcn typcn-document-add"></i>
               <span class="menu-title">Tasks</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= site_url('admin/task/report') ?>">
+            <a class="nav-link" href="<?= site_url('manager/task/report') ?>">
               <i class="menu-icon typcn typcn-chart-bar-outline"></i>
               <span class="menu-title">Task Reports</span>
             </a>

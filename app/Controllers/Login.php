@@ -43,6 +43,10 @@ class Login extends BaseController
             return redirect()->to('/admin/dashboard');
         }
 
+        if ($user['role'] == 'Manager') {
+            return redirect()->to('/manager/dashboard');
+        }
+
         if ($user['role'] == 'Staff') {
             return redirect()->to('/staff/dashboard');
         }
