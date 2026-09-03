@@ -408,31 +408,23 @@ IT Task Management
 
 
                                 <td>
+                                    <div class="d-flex" style="gap: 4px;">
+                                        <a href="<?= site_url('manager/task/view/' . $task['id']) ?>"
+                                           class="btn btn-info btn-sm">
+                                            View
+                                        </a>
 
-                                    <a href="<?= site_url('manager/task/view/' . $task['id']) ?>"
-                                       class="btn btn-info btn-sm">
+                                        <a href="<?= site_url('manager/task/edit/' . $task['id']) ?>"
+                                           class="btn btn-warning btn-sm">
+                                            Edit
+                                        </a>
 
-                                        <i class="fas fa-eye">View</i>
-
-                                    </a>
-
-
-                                    <a href="<?= site_url('manager/task/edit/' . $task['id']) ?>"
-                                       class="btn btn-warning btn-sm">
-
-                                        <i class="fas fa-edit">Edit</i>
-
-                                    </a>
-
-
-                                    <a href="<?= site_url('manager/task/worklog/create/' . $task['id']) ?>"
-                                       class="btn btn-success btn-sm"
-                                       title="Add Daily Work">
-
-                                        <i class="fas fa-plus">Add</i>
-
-                                    </a>
-
+                                        <a href="<?= site_url('manager/task/worklog/create/' . $task['id']) ?>"
+                                           class="btn btn-success btn-sm"
+                                           title="Add Daily Work">
+                                            Add Log
+                                        </a>
+                                    </div>
                                 </td>
 
                             </tr>

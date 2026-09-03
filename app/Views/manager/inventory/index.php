@@ -32,18 +32,16 @@ Inventory List
                 <div class="d-flex justify-content-between align-items-center mb-3">
 
                     <!-- Left -->
-                    <div>
-
+                    <div class="d-flex flex-wrap" style="gap: 4px;">
                         <a href="<?= site_url('manager/inventory/create') ?>"
-                           class="btn btn-success font-weight-semibold">
+                           class="btn btn-success btn-sm font-weight-semibold">
                             Add Inventory
                         </a>
 
                         <a href="<?= site_url('manager/inventory/export') ?>"
-                           class="btn btn-success font-weight-semibold">
+                           class="btn btn-success btn-sm font-weight-semibold">
                             Export Excel
                         </a>
-
                     </div>
                     <div class="">
                                  <h2 class="font-weight-bold">
@@ -373,9 +371,11 @@ Inventory List
                                     </td>
 
                                     <td>
-                                  <button type="button" class="btn btn-info btn-sm btn-view" data-id="<?= $item['id'] ?>"> View </button>
-                                  <a href="<?= site_url('manager/inventory/edit/' . $item['id']) ?>" class="btn btn-warning btn-xs">Edit</a>
-                                  <a href="<?= site_url('manager/inventory/delete/' . $item['id']) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Delete this record?')">Delete</a>
+                                        <div class="d-flex" style="gap: 4px;">
+                                            <button type="button" class="btn btn-info btn-sm btn-view" data-id="<?= $item['id'] ?>">View</button>
+                                            <a href="<?= site_url('manager/inventory/edit/' . $item['id']) ?>" class="btn btn-warning btn-sm">Edit</a>
+                                            <a href="<?= site_url('manager/inventory/delete/' . $item['id']) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Delete this record?')">Delete</a>
+                                        </div>
                                     </td>
 
                                 </tr>
@@ -610,9 +610,11 @@ document.addEventListener('DOMContentLoaded', function () {
                         </td>
 
                         <td>
-                          <button type="button" class="btn btn-info btn-sm btn-view" data-id="${item.id}"> View </button>
-                            <a href="<?= site_url('manager/inventory/edit') ?>/${item.id}" class="btn btn-warning btn-sm">Edit</a>
-                            <a href="<?= site_url('manager/inventory/delete/' . $item['id']) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Delete this record?')">Delete</a>
+                            <div class="d-flex" style="gap: 4px;">
+                                <button type="button" class="btn btn-info btn-sm btn-view" data-id="${item.id}">View</button>
+                                <a href="<?= site_url('manager/inventory/edit') ?>/${item.id}" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="<?= site_url('manager/inventory/delete') ?>/${item.id}" class="btn btn-danger btn-sm" onclick="return confirm('Delete this record?')">Delete</a>
+                            </div>
                         </td>
 
                     </tr>
