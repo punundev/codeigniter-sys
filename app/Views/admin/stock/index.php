@@ -227,8 +227,8 @@ Stock List
                     <?php endforeach; ?>
 
                 </tbody>
-
             </table>
+        </div>
 
         <div class="d-flex justify-content-between align-items-center mt-3">
             <div>

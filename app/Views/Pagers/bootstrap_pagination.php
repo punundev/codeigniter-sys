@@ -4,14 +4,13 @@
     <ul class="pagination pagination-sm mb-0">
         <?php if ($pager->hasPrevious()) : ?>
             <li class="page-item">
-                <a class="page-link" href="<?= $pager->getFirst() ?>" aria-label="First">
-                    <span aria-hidden="true">First</span>
+                <a class="page-link" href="<?= $pager->getPrevious() ?>" aria-label="Previous">
+                    Previous
                 </a>
             </li>
-            <li class="page-item">
-                <a class="page-link" href="<?= $pager->getPrevious() ?>" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
+        <?php else : ?>
+            <li class="page-item disabled">
+                <span class="page-link">Previous</span>
             </li>
         <?php endif ?>
 
@@ -26,13 +25,12 @@
         <?php if ($pager->hasNext()) : ?>
             <li class="page-item">
                 <a class="page-link" href="<?= $pager->getNext() ?>" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
+                    Next
                 </a>
             </li>
-            <li class="page-item">
-                <a class="page-link" href="<?= $pager->getLast() ?>" aria-label="Last">
-                    <span aria-hidden="true">Last</span>
-                </a>
+        <?php else : ?>
+            <li class="page-item disabled">
+                <span class="page-link">Next</span>
             </li>
         <?php endif ?>
     </ul>
