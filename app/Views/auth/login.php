@@ -1,22 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Star Admin Premium Bootstrap Admin Dashboard Template</title>
-    <!-- plugins:css -->
     <link rel="stylesheet" href="../../assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../assets/vendors/iconfonts/ionicons/dist/css/ionicons.css">
     <link rel="stylesheet" href="../../assets/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.addons.css">
-    <!-- endinject -->
-    <!-- plugin css for this page -->
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
     <link rel="stylesheet" href="../../assets/css/shared/style.css">
-    <!-- endinject -->
     <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
   </head>
   <body>
@@ -29,7 +22,7 @@
 	      <?php if (session()->getFlashdata('error')) : ?>
         	<div class="alert alert-danger">
            		<?= session()->getFlashdata('error') ?>
-      		  </div>
+       		  </div>
 	        <?php endif; ?>
                 <form action="<?= site_url('login/auth') ?>" method="post">
                   <div class="form-group">
@@ -68,10 +61,10 @@
                     <button class="btn btn-block g-login">
                       <img class="mr-3" src="../../../assets/images/file-icons/icon-google.svg" alt="">Log in with Google</button>
                   </div>
-                  <div class="text-block text-center my-3">
+                  <!-- <div class="text-block text-center my-3">
                     <span class="text-small font-weight-semibold">Not a member ?</span>
                     <a href="<?= site_url('admin/create') ?>" class="text-black text-small">Create new account</a>
-                  </div>
+                  </div> -->
                 </form>
               </div>
               <ul class="auth-footer">
@@ -87,19 +80,12 @@
               </ul>
           </div>
         </div>
-        <!-- content-wrapper ends -->
       </div>
-      <!-- page-body-wrapper ends -->
     </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
     <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
     <script src="../../assets/vendors/js/vendor.bundle.addons.js"></script>
-    <!-- endinject -->
-    <!-- inject:js -->
     <script src="../../assets/js/shared/off-canvas.js"></script>
     <script src="../../assets/js/shared/misc.js"></script>
-    <!-- endinject -->
     <script src="../../assets/js/shared/jquery.cookie.js" type="text/javascript"></script>
   </body>
 </html>

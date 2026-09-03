@@ -9,7 +9,7 @@ class Login extends BaseController
 {
     public function index()
     {
-       return view('admin/login');
+       return view('auth/login');
     }
 
     public function auth()
