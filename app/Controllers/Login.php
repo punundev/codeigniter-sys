@@ -58,7 +58,7 @@ class Login extends BaseController
     {
         session()->destroy();
 
-        return redirect()->to('admin/login');
+        return redirect()->to('/admin/login');
     }
 }
 

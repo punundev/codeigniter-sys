@@ -8,6 +8,16 @@ class Dashboard extends BaseController
 {
     public function index()
     {
+        $role = session()->get('role');
+
+        if ($role === 'Staff') {
+            return redirect()->to('/staff/dashboard');
+        }
+
+        if ($role === 'Manager') {
+            return redirect()->to('/manager/dashboard');
+        }
+
         $db = \Config\Database::connect();
 
         $totalItems = $db->table('stock_items')
